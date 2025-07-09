@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/ui-screen.json",
+  "title": "UIScreen",
+  "$ref": "#/definitions/screen",
+  "version": "1.0.162",
+  "definitions": {
+    "screen": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "components": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/component" }
+        }
+      },
+      "required": ["id", "title", "components"]
+    },
+    "component": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["button", "text", "image"] },
+        "id": { "type": "string" },
+        "props": {
+          "type": "object",
+          "properties": {
+            "text": { "type": "string" },
+            "color": { "type": "string" },
+            "size": { "type": "string", "enum": ["small", "medium", "large"] }
+          }
+        },
+        "action": { "$ref": "#/definitions/action" }
+      },
+      "required": ["type", "id"]
+    },
+    "action": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["navigate", "submit", "none"] },
+        "data": {
+          "oneOf": [
+            { "$ref": "#/definitions/ActionDataNavigate" },
+            { "type": "null" }
+          ]
+        }
+      },
+      "required": ["type"]
+    },
+    "ActionDataNavigate": {
+      "type": "object",
+      "properties": {
+        "destinationType": {
+          "type": "string",
+          "enum": ["screen", "journey"]
+        },
+        "path": { "type": "string" },
+        "params": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": { "type": "string" },
+              "value": { "type": "string" },
+              "context": {
+                "type": "string",
+                "enum": ["local", "global", "system"]
+              },
+              "componentId": { "type": "string" },
+              "fieldId": { "type": "string" }
+            },
+            "required": ["key"]
+          }
+        }
+      },
+      "required": ["destinationType", "path"]
+    }
+  }
+}
