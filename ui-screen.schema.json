@@ -3,7 +3,6 @@
   "$id": "https://example.com/schemas/ui-screen.json",
   "title": "UIScreen",
   "$ref": "#/definitions/screen",
-  "version": "1.0.162",
   "definitions": {
     "screen": {
       "type": "object",
