@@ -11,8 +11,8 @@
                "trigger": "onLoad",
                "type": "apiCall",
                "actionData": {
-                  "path": "/posts",
-                  "method": "post"
+                  "path": "/homepage-response.json",
+                  "method": "get"
                }
             }
          ]
