@@ -11,7 +11,7 @@
                "trigger": "onLoad",
                "type": "apiCall",
                "actionData": {
-                  "path": "/page/home_popups",
+                  "path": "/posts",
                   "method": "post"
                }
             }
