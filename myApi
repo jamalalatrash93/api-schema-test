@@ -1,0 +1,131 @@
+{
+   "responseType": "screen",
+   "id": "homeScreen",
+   "actions": [
+      {
+         "trigger": "onLoad",
+         "bindTo": "",
+         "executionType": "parallel",
+         "executions": [
+            {
+               "trigger": "onLoad",
+               "type": "apiCall",
+               "actionData": {
+                  "path": "/page/home_popups",
+                  "method": "post"
+               }
+            }
+         ]
+      }
+   ],
+   "screenMeta": {
+      "title": "home",
+      "style": "fullBleed"
+   },
+   "header": {
+      "id": "HomeHeader",
+      "sortOrder": 0,
+      "components": [
+         {
+            "id": "HomeHeaderId",
+            "dlsName": "Header",
+            "sortOrder": 0,
+            "props": {
+               "appearanceMode": "transparent",
+               "title": "home",
+               "isUserLogged": false,
+               "hasCloseButton": false,
+               "hasBackButton": false,
+               "type": "homePage",
+               "buttons": [
+                  {
+                     "id": "loginButton",
+                     "dlsName": "ButtonIcon",
+                     "sortOrder": 1,
+                     "props": {
+                        "icon": "login_outline",
+                        "variant": "outline",
+                        "size": "md",
+                        "actions": [
+                           {
+                              "trigger": "onClick",
+                              "bindTo": "loginButton",
+                              "executionType": "parallel",
+                              "executions": [
+                                 {
+                                    "trigger": "onClick",
+                                    "bindTo": "loginButton",
+                                    "type": "navigate",
+                                    "actionData": {
+                                       "method": "",
+                                       "path": "/page/login_or_register",
+                                       "destinationType": "journey"
+                                    }
+                                 }
+                              ]
+                           }
+                        ]
+                     }
+                  },
+                  {
+                     "id": "profileButton",
+                     "dlsName": "ButtonIcon",
+                     "sortOrder": 2,
+                     "props": {
+                        "icon": "profile_outline",
+                        "variant": "outline",
+                        "size": "md",
+                        "actions": [
+                           {
+                              "trigger": "onClick",
+                              "bindTo": "profileButton",
+                              "executionType": "parallel",
+                              "executions": [
+                                 {
+                                    "trigger": "onClick",
+                                    "bindTo": "profileButton",
+                                    "type": "navigate",
+                                    "actionData": {
+                                       "method": "",
+                                       "path": "/page/manage_profile",
+                                       "destinationType": "journey"
+                                    }
+                                 }
+                              ]
+                           }
+                        ]
+                     }
+                  }
+               ],
+               "actions": [
+                  {
+                     "trigger": "onClick",
+                     "bindTo": "loginButton",
+                     "executionType": "parallel",
+                     "executions": [
+                        {
+                           "trigger": "onClick",
+                           "type": "navigate",
+                           "bindTo": "loginButton",
+                           "actionData": {
+                              "path": "/page/login_or_register",
+                              "destinationType": "journey"
+                           }
+                        },
+                        {
+                           "trigger": "onClick",
+                           "type": "navigate",
+                           "bindTo": "profileButton",
+                           "actionData": {
+                              "path": "/page/manage_profile",
+                              "destinationType": "journey"
+                           }
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      ]
+   }
+}
