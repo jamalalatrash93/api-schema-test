@@ -33,7 +33,7 @@
             "props": {
                "appearanceMode": "transparent",
                "title": "home",
-               "isUserLogged": false,
+               "isUserLogged": "Test",
                "hasCloseButton": false,
                "hasBackButton": false,
                "type": "homePage",
